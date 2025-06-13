@@ -1,0 +1,49 @@
+<div class="header">
+    <div class="container d-flex justify-content-between mt-2">
+        <div class="logo fs-1">
+            Planvia
+        </div>
+        <ul class="d-flex justify-content-between mt-3 list-unstyled nav-items">
+            <li class="nav-item"><a href="" class="fs-4">Home</a></li>
+            <li class="nav-item"><a href="" class="fs-4">Project</a></li>
+            <li class="nav-item"><a href="" class="fs-4">Dashboard</a></li>
+        </ul>
+    </div>
+</div>
+<div class="" style="height: 80vh;">
+    <ng-content></ng-content>
+</div>
+<footer class="footer text-white pt-4" style="padding-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <!-- About Planvia -->
+            <div class="col-md-4 mb-3">
+                <h5>About Planvia</h5>
+                <p>Planvia helps you organize your goals, schedule, and tasks efficiently. Your productivity companion.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 mb-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a routerLink="/home" class="text-white text-decoration-none">Home</a></li>
+                    <li><a routerLink="/features" class="text-white text-decoration-none">Features</a></li>
+                    <li><a routerLink="/pricing" class="text-white text-decoration-none">Pricing</a></li>
+                    <li><a routerLink="/contact" class="text-white text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-4 mb-3">
+                <h5>Contact Us</h5>
+                <p>Email: support&#64;planvia.app</p>
+                <p>Phone: +1 (800) 123-4567</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center">
+            <p>© {{ currentYear }} Planvia. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
