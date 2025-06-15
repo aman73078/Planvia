@@ -1,0 +1,15 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#typing-text {
+  border-right: 2px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

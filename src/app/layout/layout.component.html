@@ -1,17 +1,91 @@
-<div class="header">
-    <div class="container d-flex justify-content-between mt-2">
-        <div class="logo fs-1">
-            Planvia
+<!-- Navbar -->
+<nav class="header navbar navbar-dark  fixed-top shadow">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <span class="navbar-brand fw-bold fs-4">Planvia</span>
+        <div class="col-6 d-flex">
+            <input type="search" name="search" id="search" class="form-control">
+            <button class="btn btn-outline-light btn-sm me-2" style="margin-left: -25px;">🔍</button>
         </div>
-        <ul class="d-flex justify-content-between mt-3 list-unstyled nav-items">
-            <li class="nav-item"><a href="" class="fs-4">Home</a></li>
-            <li class="nav-item"><a href="" class="fs-4">Project</a></li>
-            <li class="nav-item"><a href="" class="fs-4">Dashboard</a></li>
-        </ul>
+        <div class="d-flex">
+            <button class="btn rounded-circle bg-white mx-3">🔔</button>
+            <!-- Profile Dropdown (Smaller Version) -->
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+
+                    <!-- Profile Image Toggle -->
+                    <img [src]="'./images/userProfile.png'" alt="User Profile"
+                        class="rounded-circle border bg-white border-1 border-dark cursor-pointer" width="30"
+                        height="30" placement="bottom" id="dropdownBasic1" ngbDropdownToggle />
+
+                    <!-- Dropdown Menu -->
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1"
+                        class="dropdown-menu-end user-dd dropdown-menu-animate-up p-2"
+                        style="width: 220px; font-size: 0.875rem;">
+                        <span class="with-arrow"><span class="bg-primary"></span></span>
+
+                        <!-- User Info -->
+                        <div class="d-flex align-items-center p-2 bg-primary text-white mb-2 rounded">
+                            <img [src]="'./images/userProfile.png'" alt="User" width="36" height="36"
+                                class="img-circle" />
+                            <div class="ms-2">
+                                <h6 class="mb-0 text-truncate text-capitalize">unidex admin</h6>
+                                <small class="mb-0 text-truncate">unidexadminstellaripl.com</small>
+                            </div>
+                        </div>
+
+                        <!-- Menu Items -->
+                        <a routerLinkActive="router-link-active" class="dropdown-item py-1 px-2">
+                            <i class="fas fa-user me-1 ms-1"></i> My Profile
+                        </a>
+                        <a href="javascript:void(0)" class="dropdown-item py-1 px-2" (click)="logOut()">
+                            <i class="fa-solid fa-power-off me-1 ms-1"></i> Logout
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="" style="height: 80vh;">
-    <ng-content></ng-content>
+</nav>
+
+<div class="container-fluid" style="margin-top: 4.5rem;">
+    <div class="row">
+
+
+        <aside class="col-md-3 col-lg-2 d-none d-md-block bg-white shadow-sm vh-100 border-end">
+            <div class="pt-4">
+                <ul class="nav flex-column sidebar">
+                    <li class="nav-item"><a class="nav-link active" [routerLink]="'/dashboard/home'">🏠 Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex justify-content-between align-items-center" (click)="toggleProjects()"
+                            style="cursor: pointer;">
+                            📁 Projects
+                            <span [ngClass]="{'rotate-icon': isProjectsExpanded}">▸</span>
+                        </a>
+
+                        <ul class="nav flex-column ps-3 submenu-line" *ngIf="isProjectsExpanded">
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="'/dashboard/projects/project1'">Project 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="'/dashboard/projects/project2'">Project 2</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item"><a class="nav-link" href="#">👥 Teams</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">🗓️ Calendar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">⚙️ Settings</a></li>
+                </ul>
+            </div>
+        </aside>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+            <!-- <app-projects></app-projects> -->
+             <router-outlet></router-outlet>
+        </main>
+    </div>
 </div>
 <footer class="footer text-white pt-4" style="padding-top: 100px;">
     <div class="container">

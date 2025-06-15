@@ -1,0 +1,95 @@
+<div class="header">
+    <div class="container d-flex justify-content-between mt-2">
+        <div class="logo fs-1">
+            Planvia
+        </div>
+        <ul class="d-flex justify-content-between mt-3 list-unstyled nav-items">
+            <li class="nav-item"><a href="" class="fs-4">Home</a></li>
+            <li class="nav-item"><a href="" class="fs-4">Project</a></li>
+            <li class="nav-item"><a href="" class="fs-4">Dashboard</a></li>
+        </ul>
+    </div>
+</div>
+<div class="" style="min-height: 80vh;">
+    <div class="d-flex flex-wrap align-items-center vh-100 bg-light">
+  <!-- Left Side -->
+  <div class="p-5" style="width: 50%;">
+    <h1 class="display-5 fw-bold">Welcome to <span class="text-primary">Planvia</span></h1>
+    <p class="lead mt-3">
+      Planvia is your agile project manager—powerful like Jira, but simpler and smarter.
+    </p>
+    <ul class="mt-4">
+      <li>🧩 Intuitive task boards</li>
+      <li>👥 Seamless team collaboration</li>
+      <li>📊 Real-time reporting & insights</li>
+    </ul>
+  </div>
+
+  <!-- Right Side -->
+  <div class="p-5 d-flex justify-content-center align-items-center w-50">
+    <!-- Card 1 -->
+    <div class="card animated-card" *ngIf="showCard1">
+      <div class="card-body">
+        <h5 class="card-title text-gradient">Team Productivity</h5>
+        <p class="card-text type-text-lg">
+          <span class="typing-wrapper">
+            <span #typingCard1></span>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card animated-card" *ngIf="showCard2">
+      <div class="card-body">
+        <h5 class="card-title text-gradient">Custom Workflows</h5>
+        <p class="card-text type-text-lg">
+          <span class="typing-wrapper">
+            <span #typingCard2></span>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+<footer class="footer text-white pt-4" style="padding-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <!-- About Planvia -->
+            <div class="col-md-4 mb-3">
+                <h5>About Planvia</h5>
+                <p>Planvia helps you organize your goals, schedule, and tasks efficiently. Your productivity companion.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 mb-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a routerLink="/home" class="text-white text-decoration-none">Home</a></li>
+                    <li><a routerLink="/features" class="text-white text-decoration-none">Features</a></li>
+                    <li><a routerLink="/pricing" class="text-white text-decoration-none">Pricing</a></li>
+                    <li><a routerLink="/contact" class="text-white text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-4 mb-3">
+                <h5>Contact Us</h5>
+                <p>Email: support&#64;planvia.app</p>
+                <p>Phone: +1 (800) 123-4567</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center">
+            <p>© {{ currentYear }} Planvia. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

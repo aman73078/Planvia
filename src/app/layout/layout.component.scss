@@ -1,29 +1,59 @@
-.header{
-    height: 50px;
-    position: fixed;
-    width: 100%;
-    background-color: #fff;
-    color: #000;
-    z-index: 999;
-    box-shadow: 0px 0px 10px 0px #aaa;
+.header {
+      background: #0747a6;
+      color: white;
+      padding: 1rem 2rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+.navbar-brand {
+  font-weight: bold;
 }
 
-.nav-items a {
-    text-decoration: none;
-    color: inherit; /* Optional: matches link color to text */
+.sidebar .nav-link {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  color: #333;
 }
 
-.nav-items li {
-    margin-left: 20px;
-    list-style: none; /* removes bullet points */
+.sidebar .nav-link:hover {
+  background-color: #f8f9fa;
+}
+
+.card {
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
 
+.rotate-icon {
+  transform: rotate(90deg);
+  transition: transform 0.2s;
+}
 
-.nav-items, .logo {
-    align-items: center;
-    display: flex;
-    height: 100%;
+.submenu-line {
+  border-left: 2px solid #ddd; /* Light vertical line */
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.rotate-icon {
+  display: inline-block;
+  transform: rotate(90deg);
+  transition: transform 0.2s;
+}
+
+a.nav-link {
+  font-weight: 500;
 }
 
 .footer {

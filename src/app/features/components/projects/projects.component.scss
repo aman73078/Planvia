@@ -1,0 +1,95 @@
+#teamLeadFilter {
+  min-width: 200px;
+}
+
+.team-lead-filter {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid white;
+  font-size: 0.875rem;
+}
+
+.team-lead-filter:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.active-team-lead {
+  box-shadow: 0 0 0 2px #007bff;
+}
+
+
+
+
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}
+
+
+
+// stepper
+
+.stepper-vertical {
+  position: relative;
+  padding-left: 30px;
+  margin-left: 20px;
+  border-left: 2px solid #dee2e6; /* Center line */
+}
+
+.step {
+  position: relative;
+}
+
+.step-content {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #6c757d;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  margin-left: -50px; /* Pull circle over center line */
+}
+
+.step-text {
+  margin-left: 15px;
+}
+
+.active-step .step-circle {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.completed-step .step-circle {
+  background-color: #198754;
+  color: white;
+}
+
+/* Optional hover effect */
+.step-circle:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease-in-out;
+}
