@@ -1,95 +1,223 @@
 <div class="header">
-    <div class="container d-flex justify-content-between mt-2">
-        <div class="logo fs-1">
-            Planvia
-        </div>
-        <ul class="d-flex justify-content-between mt-3 list-unstyled nav-items">
-            <li class="nav-item"><a href="" class="fs-4">Home</a></li>
-            <li class="nav-item"><a href="" class="fs-4">Project</a></li>
-            <li class="nav-item"><a href="" class="fs-4">Dashboard</a></li>
-        </ul>
+  <div class="container d-flex justify-content-between mt-2">
+    <div class="logo fs-1 text-gradient">
+      Planvia
     </div>
-</div>
-<div class="" style="min-height: 80vh;">
-    <div class="d-flex flex-wrap align-items-center vh-100 bg-light">
-  <!-- Left Side -->
-  <div class="p-5" style="width: 50%;">
-    <h1 class="display-5 fw-bold">Welcome to <span class="text-primary">Planvia</span></h1>
-    <p class="lead mt-3">
-      Planvia is your agile project manager—powerful like Jira, but simpler and smarter.
-    </p>
-    <ul class="mt-4">
-      <li>🧩 Intuitive task boards</li>
-      <li>👥 Seamless team collaboration</li>
-      <li>📊 Real-time reporting & insights</li>
+    <ul class="d-flex justify-content-between mt-3 list-unstyled nav-items">
+      <li class="nav-item"><a href="" class="fs-4">Home</a></li>
+      <li class="nav-item"><a href="" class="fs-4">Project</a></li>
+      <li class="nav-item"><a href="" class="fs-4">Dashboard</a></li>
     </ul>
   </div>
+</div>
 
-  <!-- Right Side -->
-  <div class="p-5 d-flex justify-content-center align-items-center w-50">
-    <!-- Card 1 -->
-    <div class="card animated-card" *ngIf="showCard1">
-      <div class="card-body">
-        <h5 class="card-title text-gradient">Team Productivity</h5>
-        <p class="card-text type-text-lg">
-          <span class="typing-wrapper">
-            <span #typingCard1></span>
-          </span>
-        </p>
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center"
+  style="background-color: rgb(149, 222, 222);">
+  <div class="row w-100 align-items-center">
+    <!-- Left Side -->
+    <!-- Content HTML -->
+    <div class="col-lg-6 p-5">
+      <h1 class="display-4 fw-bold" style="font-size: 4rem;">
+        Welcome to <span class="text-gradient">Planvia</span>
+      </h1>
+      <p class="lead mt-3">
+        Planvia is your agile project manager—powerful like Jira, but simpler and smarter.
+      </p>
+
+      <ul class="feature-list mt-4 list-unstyled">
+        <li>🧩 Intuitive task boards</li>
+        <li>👥 Seamless team collaboration</li>
+        <li>📊 Real-time reporting & insights</li>
+      </ul>
+
+      <div class="d-flex feature-cards mt-5">
+        <div class="card shadow-sm">
+          <div class="card-body d-flex justify-content-center align-items-center">
+            <img src="images/task-board.png" alt="Task Board">
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-body d-flex justify-content-center align-items-center">
+            <img src="images/team-collaboration.png" alt="Team Collaboration">
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-body d-flex justify-content-center align-items-center">
+            <img src="images/insights.png" alt="Insights">
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="card animated-card" *ngIf="showCard2">
-      <div class="card-body">
-        <h5 class="card-title text-gradient">Custom Workflows</h5>
-        <p class="card-text type-text-lg">
-          <span class="typing-wrapper">
-            <span #typingCard2></span>
-          </span>
-        </p>
+    <!-- Right Side -->
+    <div class="col-lg-6 d-flex justify-content-center p-5">
+      <div class="glass-card p-4">
+        <img [src]="'images/office.png'" alt="3D Illustration" class="img-fluid rounded"
+          style="max-width: 100%; height: auto;">
       </div>
     </div>
+  </div>
+</div>
+
+<section class="py-5 text-center">
+  <div class="container">
+    <h1 class="section-heading">
+      Discover the Features That Make <span class="text-gradient">Planvia</span> So Easy
+    </h1>
+    <p class="lead mt-3">
+      Simple, smart, and scalable — everything your team needs to stay productive.
+    </p>
+  </div>
+</section>
+
+<!-- Features Grid -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <ng-container *ngFor="let feature of features">
+        <div class="col-md-4">
+          <div class="feature-card text-center h-100 p-4 shadow-sm bg-white rounded">
+            <div class="display-4">{{ feature.icon }}</div>
+            <h5 class="fw-bold mt-3">{{ feature.title }}</h5>
+            <p class="text-muted">{{ feature.description }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>
+<div class="container ">
+  <!-- Hero Section -->
+  <div class="row align-items-center">
+    <div class="col-lg-6 text-center">
+      <img src="images/about.png" class="img-fluid" alt="About Planvia">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-primary">About <span class="text-gradient">Planvia</span></h1>
+      <p class="lead mt-3">
+        Planvia is a next-generation project management platform that simplifies teamwork, enhances productivity, and
+        provides clear insights — all in one intuitive dashboard.
+      </p>
+      <p>
+        Whether you're a startup, remote team, or large enterprise, Planvia adapts to your workflows, making
+        collaboration and delivery faster and smarter.
+      </p>
+      <!-- Values Section -->
+      <div class="row text-center gy-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow border-0 p-4">
+            <div class="icon mb-3 display-4 text-primary">🚀</div>
+            <h5>Agile, Simplified</h5>
+            <p>We’ve stripped away the complexity of traditional PM tools, making agile approachable and flexible for
+              all
+              teams.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow border-0 p-4">
+            <div class="icon mb-3 display-4 text-primary">📈</div>
+            <h5>Data-Driven Insights</h5>
+            <p>Track progress and measure success with smart reports, dashboards, and real-time analytics.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow border-0 p-4">
+            <div class="icon mb-3 display-4 text-primary">🤝</div>
+            <h5>Built for Collaboration</h5>
+            <p>Planvia brings your entire team together — from tasks and files to chats and workflows — in one place.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
 
 
 
+<div class="container mb-2">
 
+  <div class="col-lg-12">
+    <section class="workflow-section p-4 bg-white rounded shadow">
+      <h2 class="text-center mb-5 text-primary">Planvia Workflow</h2>
+
+      <div class="d-flex justify-content-between position-relative align-items-center workflow-container">
+
+        <div *ngFor="let step of workflowSteps; let i = index" class="workflow-step"
+          [ngClass]="{'top-step': i % 2 === 0, 'bottom-step': i % 2 !== 0}">
+
+          <div class="workflow-card p-3 shadow rounded text-center">
+            <h5>{{step.icon}} {{step.title}}</h5>
+            <p>{{step.description}}</p>
+          </div>
+
+          <!-- Connector circles -->
+          <div class="connector-circle"></div>
+
+          <!-- Connectors -->
+          <svg *ngIf="i < workflowSteps.length -1" class="connector-svg" height="60" width="100"
+            [ngClass]="{'connector-top': i % 2 === 0, 'connector-bottom': i % 2 !== 0}">
+            <path d="M10 50 Q 50 0 90 50" stroke="#0d6efd" stroke-width="3" fill="transparent" />
+          </svg>
+
+        </div>
+
+      </div>
+    </section>
+  </div>
 
 </div>
+
+
+<!-- CTA -->
+<section class="cta-section text-center p-5" style="background-color: aquamarine;">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Ready to simplify your workflow?</h2>
+    <p class="lead mb-4">Join thousands of teams who trust <span class="text-gradient">Planvia</span> to manage their projects with ease.</p>
+    <a href="#signup" class="btn btn-lg btn-primary px-5 py-3 rounded-pill">
+      Join Planvia Now
+    </a>
+  </div>
+</section>
+
+
 <footer class="footer text-white pt-4" style="padding-top: 100px;">
-    <div class="container">
-        <div class="row">
-            <!-- About Planvia -->
-            <div class="col-md-4 mb-3">
-                <h5>About Planvia</h5>
-                <p>Planvia helps you organize your goals, schedule, and tasks efficiently. Your productivity companion.
-                </p>
-            </div>
+  <div class="container">
+    <div class="row">
+      <!-- About Planvia -->
+      <div class="col-md-4 mb-3">
+        <h5>About Planvia</h5>
+        <p>Planvia helps you organize your goals, schedule, and tasks efficiently. Your productivity companion.
+        </p>
+      </div>
 
-            <!-- Quick Links -->
-            <div class="col-md-4 mb-3">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a routerLink="/home" class="text-white text-decoration-none">Home</a></li>
-                    <li><a routerLink="/features" class="text-white text-decoration-none">Features</a></li>
-                    <li><a routerLink="/pricing" class="text-white text-decoration-none">Pricing</a></li>
-                    <li><a routerLink="/contact" class="text-white text-decoration-none">Contact</a></li>
-                </ul>
-            </div>
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a routerLink="/home" class="text-white text-decoration-none">Home</a></li>
+          <li><a routerLink="/features" class="text-white text-decoration-none">Features</a></li>
+          <li><a routerLink="/pricing" class="text-white text-decoration-none">Pricing</a></li>
+          <li><a routerLink="/contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
 
-            <!-- Contact Info -->
-            <div class="col-md-4 mb-3">
-                <h5>Contact Us</h5>
-                <p>Email: support&#64;planvia.app</p>
-                <p>Phone: +1 (800) 123-4567</p>
-            </div>
-        </div>
-        <hr>
-        <div class="row text-center">
-            <p>© {{ currentYear }} Planvia. All rights reserved.</p>
-        </div>
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support&#64;planvia.app</p>
+        <p>Phone: +1 (800) 123-4567</p>
+      </div>
     </div>
+    <hr>
+    <div class="row text-center">
+      <p>© {{ currentYear }} Planvia. All rights reserved.</p>
+    </div>
+  </div>
 </footer>

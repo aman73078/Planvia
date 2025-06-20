@@ -35,65 +35,217 @@
   text-decoration: underline;
 }
 
-
-.animated-card {
-  width: 90%;
-  max-width: 500px;
-  padding: 2rem;
-  background: linear-gradient(135deg, #ffffff, #f0f0f0);
-  border-radius: 15px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease-in-out;
-  animation: fadeIn 0.8s ease;
-}
-
-.card-title {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.card-text {
-  color: #333;
-  min-height: 80px;
-}
-
-.type-text-lg {
-  font-size: 2rem;
-  font-weight: 600;
-  min-height: 120px;
-}
-
+/* =================== Typography & Utilities =================== */
 .text-gradient {
-  background: linear-gradient(to right, #0d6efd, #6610f2);
+  background: linear-gradient(to right, #007bff, #00c6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.typing-text {
-  border-right: 2px solid black;
-  overflow: hidden;
-  animation: blinkCursor 0.7s steps(44) infinite;
-  display: inline-block;
-  word-break: break-word;
-  max-width: 100%;
-  white-space: normal; /* ✅ FIX: allow wrapping */
+.section-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0a0a0a;
 }
-
-
-@keyframes blinkCursor {
-  0% { border-color: black; }
-  50% { border-color: transparent; }
-  100% { border-color: black; }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 2.25rem;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+}
+
+/* =================== Feature Cards =================== */
+.feature-cards img {
+  width: 100%;
+  height: auto;
+  max-height: 10rem;
+  object-fit: contain;
+}
+
+.feature-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.feature-cards .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  width: 10rem;
+  background-color: #ffffff;
+}
+
+.feature-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .feature-cards {
+    flex-direction: column;
+  }
+
+  .feature-cards .card {
+    width: 100%;
+  }
+}
+
+/* =================== Single Feature Grid Cards =================== */
+.feature-card {
+  border: none;
+  border-radius: 1rem;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #00bcd4;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* =================== Join Section =================== */
+.join-section {
+  background: linear-gradient(135deg, #95dede, #ffffff);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.join-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.join-section p {
+  font-size: 1.2rem;
+  color: #444;
+  max-width: 700px;
+  margin: 1rem auto;
+}
+.join-section ul {
+  list-style: none;
+  padding: 0;
+}
+.join-section li {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+.btn-join {
+  width: 100%;
+  font-weight: 600;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #0d6efd, #0dcaf0);
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.btn-join:hover {
+  background: linear-gradient(45deg, #0a58ca, #0898b0);
+  color: white;
+}
+
+/* =================== Workflow Timeline =================== */
+.workflow-container {
+  overflow-x: auto;
+  display: flex;
+  gap: 4rem;
+  padding-bottom: 80px;
+  position: relative;
+}
+.workflow-container::-webkit-scrollbar {
+  height: 8px;
+}
+.workflow-container::-webkit-scrollbar-track {
+  background: #e9ecef;
+  border-radius: 10px;
+}
+.workflow-container::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+  border-radius: 10px;
+}
+
+.workflow-step {
+  position: relative;
+  width: 160px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.workflow-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.15);
+  transition: transform 0.3s ease;
+}
+.workflow-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(13, 110, 253, 0.3);
+}
+
+.top-step {
+  margin-bottom: 60px;
+}
+.bottom-step {
+  margin-top: 60px;
+}
+
+.connector-circle {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 15px #0dcaf0aa;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  bottom: -10px;
+}
+.bottom-step .connector-circle {
+  top: -10px;
+  bottom: auto;
+}
+
+.connector-svg {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  z-index: 5;
+  overflow: visible;
+}
+.connector-top path,
+.connector-bottom path {
+  stroke: #0d6efd;
+  stroke-width: 3;
+  fill: none;
+}
+.connector-bottom {
+  transform: translateY(-50%) scaleY(-1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .workflow-step {
+    width: 140px;
+  }
+
+  .workflow-container {
+    padding-bottom: 100px;
+  }
+
+  .join-section {
+    margin-bottom: 3rem;
   }
 }
