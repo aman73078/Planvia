@@ -7,7 +7,7 @@ import { AuthComponent } from './features/auth/auth.component';
 import { OverviewComponent } from './features/overview/overview.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'overview', pathMatch: 'full' },
   {
     path: 'overview',
     component: OverviewComponent,
@@ -19,6 +19,10 @@ export const routes: Routes = [
         {
             path:'testinomial',
             loadComponent: ()=> import('./features/pages/testinomial/testinomial.component').then(m => m.TestinomialComponent),
+        },
+        {
+          path:'contact',
+          loadComponent: ()=> import('./features/pages/contact/contact.component').then(m => m.ContactComponent),
         },
         {
             path: 'auth',

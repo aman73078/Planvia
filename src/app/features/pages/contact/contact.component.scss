@@ -1,0 +1,46 @@
+/* Container */
+.contact-wrapper {
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glass Card for Illustration */
+.glass-card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  max-width: 480px;
+  margin: auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Button Gradient */
+.btn-gradient {
+  background: linear-gradient(45deg, #00c6ff, #007bff);
+  color: #fff;
+  border: none;
+  transition: transform 0.2s ease;
+}
+.btn-gradient:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+}
+
+/* Input Focus Glow */
+.form-control:focus {
+  border-color: #00c6ff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 198, 255, 0.25);
+}
+
+/* Page HSpacing */
+@media (min-width: 992px) {
+  .contact-wrapper > .col-lg-6 {
+    padding: 4rem;
+  }
+}

@@ -15,16 +15,16 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav gap-lg-4 text-center">
           <li class="nav-item">
-            <a class="nav-link fs-5" routerLink="/home" routerLinkActive="active">Home</a>
+            <a class="nav-link fs-5" routerLink="/overview/details" routerLinkActive="active">Know Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" routerLink="/projects" routerLinkActive="active">Project</a>
+            <a class="nav-link fs-5" routerLink="/overview/testinomial" routerLinkActive="active">Testinomial</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+            <a class="nav-link fs-5" routerLink="/overview/contact" routerLinkActive="active">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-primary rounded-pill px-4 py-2 mt-2 mt-lg-0" href="#signup">Get Started</a>
+            <a class="btn btn-primary rounded-pill px-4 py-2 mt-2 mt-lg-0" [routerLink]="'/overview/auth'">Get Started</a>
           </li>
         </ul>
       </div>
