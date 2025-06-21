@@ -1,0 +1,72 @@
+<header class="py-2 sticky-top bg-white shadow-sm">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <!-- Logo -->
+      <a class="navbar-brand fs-2 fw-bold text-gradient" routerLink="/">Planvia</a>
+
+      <!-- Hamburger Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-lg-4 text-center">
+          <li class="nav-item">
+            <a class="nav-link fs-5" routerLink="/home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" routerLink="/projects" routerLinkActive="active">Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary rounded-pill px-4 py-2 mt-2 mt-lg-0" href="#signup">Get Started</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="">
+    <router-outlet></router-outlet>
+</div>
+
+<footer class="footer text-white pt-4" style="padding-top: 100px;">
+  <div class="container">
+    <div class="row">
+      <!-- About Planvia -->
+      <div class="col-md-4 mb-3">
+        <h5>About Planvia</h5>
+        <p>Planvia helps you organize your goals, schedule, and tasks efficiently. Your productivity companion.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a routerLink="/home" class="text-white text-decoration-none">Home</a></li>
+          <li><a routerLink="/features" class="text-white text-decoration-none">Features</a></li>
+          <li><a routerLink="/pricing" class="text-white text-decoration-none">Pricing</a></li>
+          <li><a routerLink="/contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support&#64;planvia.app</p>
+        <p>Phone: +1 (800) 123-4567</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row text-center">
+      <p>© {{ currentYear }} Planvia. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
