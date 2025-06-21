@@ -12,4 +12,8 @@ export const FeatureRoutes: Routes = [
         path:'projects',
         loadComponent: () => import('./components/projects/projects.component').then(m => m.ProjectsComponent),
     },
+    {
+        path:'task',
+        loadComponent: () => import('./components/task/task.component').then(m => m.TaskComponent),
+    }
 ]
