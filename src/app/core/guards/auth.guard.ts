@@ -1,12 +1,28 @@
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, GuardResult, MaybeAsync, RouterStateSnapshot } from "@angular/router";
+import { Injectable } from '@angular/core';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  GuardResult,
+  MaybeAsync,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
-    providedIn:'root',
+  providedIn: 'root',
 })
-export class AuthGuard implements CanActivate{
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
-        throw new Error("Method not implemented.");
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private route: Router) {}
+  canActivate(): boolean {
+    let isAuthenticate = this.authService.isAuthenticate();
+    console.log('isAuthenticate',isAuthenticate);
+    
+    if (isAuthenticate) {
+      return true;
     }
 
+    this.route.navigate(['/overview/auth']);
+    return false;
+  }
 }

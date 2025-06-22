@@ -5,6 +5,7 @@ import { HomeComponent } from './features/pages/home/home.component';
 import { DetailsComponent } from './features/pages/details/details.component';
 import { AuthComponent } from './features/auth/auth.component';
 import { OverviewComponent } from './features/overview/overview.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'overview', pathMatch: 'full' },
@@ -12,6 +13,7 @@ export const routes: Routes = [
     path: 'overview',
     component: OverviewComponent,
     children: [
+        { path:'', redirectTo:'details',pathMatch:'full'},
         {
             path:'details',
             loadComponent: ()=> import('./features/pages/details/details.component').then(m => m.DetailsComponent),
@@ -35,5 +37,6 @@ export const routes: Routes = [
     path: 'dashboard',
     component: LayoutComponent,
     children: FeatureRoutes,
+    canActivate:[AuthGuard],
   },
 ];

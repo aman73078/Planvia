@@ -21,45 +21,85 @@ import { Router } from '@angular/router';
 export class ProjectsComponent {
   selectedTeamLead: string = '';
 
-  projects = [
-    {
-      title: 'Website Redesign',
-      status: 'In Progress',
-      openTasks: 12,
-      totalTasks: 25,
-      teamLead: 'Jane Doe',
-      clientName: 'Acme Corp',
-    },
-    {
-      title: 'Mobile App',
-      status: 'Development',
-      openTasks: 18,
-      totalTasks: 30,
-      teamLead: 'Emily Davis',
-      clientName: 'TechNova',
-    },
-    {
-      title: 'Marketing Campaign',
-      status: 'Planning',
-      openTasks: 5,
-      totalTasks: 10,
-      teamLead: 'Kishor M',
-      clientName: 'Globex Inc',
-    },
-  ];
+  projects: any[] = [
+  {
+    title: 'Website Redesign',
+    projectKey: 'WRD2025',
+    clientName: 'Acme Corp',
+    teamLead: 'Jane Doe',
+    projectType: 'Software Developement',
+    status: 'In Progress',
+    startDate: '2025-05-01',
+    endDate: '2025-08-30',
+    description: 'Redesigning the company website to improve user experience and mobile responsiveness.',
+  },
+  {
+    title: 'Mobile App Launch',
+    projectKey: 'MAL2025',
+    clientName: 'TechNova',
+    teamLead: 'John Smith',
+    projectType: 'Marketing',
+    status: 'Planning',
+    startDate: '2025-07-01',
+    endDate: '2025-12-15',
+    description: 'Developing a cross-platform mobile app for on-the-go financial tracking.',
+  },
+  {
+    title: 'Cloud Migration',
+    projectKey: 'CMG2025',
+    clientName: 'HealthPro',
+    teamLead: 'Emily Clark',
+    projectType: 'Business',
+    status: 'Completed',
+    startDate: '2025-01-15',
+    endDate: '2025-04-30',
+    description: 'Migrated existing data centers to AWS cloud services with improved security.',
+  },
+  {
+    title: 'AI Chatbot Integration',
+    projectKey: 'ACI2025',
+    clientName: 'RetailNet',
+    teamLead: 'Michael Lee',
+    projectType: 'Operations',
+    status: 'In Progress',
+    startDate: '2025-06-01',
+    endDate: '2025-09-30',
+    description: 'Integrating an AI-powered chatbot to enhance customer service response time.',
+  },
+  {
+    title: 'Internal HR System Upgrade',
+    projectKey: 'HRU2025',
+    clientName: 'Inhouse Inc.',
+    teamLead: 'Sarah Nguyen',
+    projectType: 'Software Developement',
+    status: 'Pending',
+    startDate: '2025-10-01',
+    endDate: '2026-01-15',
+    description: 'Upgrading the internal HR management platform with new performance tracking features.',
+  }
+];
+
 
   @ViewChild('createProject') createProject!: ElementRef;
   @ViewChild(DialogComponent) dialogComponent!: DialogComponent;
 
   teamMembers = [
-    { name: 'Alice Johnson', role: 'Admin' },
-    { name: 'Bob Smith', role: 'Developer' },
-    { name: 'Charlie Lee', role: 'Designer' }
+    { name: 'Jane Doe', role: 'Admin' },
+    { name: 'John Smith', role: 'Developer' },
+    { name: 'Emily Clark', role: 'Designer' },
+    { name: 'Michael Lee', role: 'Designer' },
+    { name: 'Sarah Nguyen', role: 'Designer' },
   ];
-
+  projectCategory:any[] = [
+    {projectType:'Software Developement', projectIcon:'bi bi-code-slash'},
+    {projectType:'Marketing', projectIcon:'bi bi-megaphone-fill'},
+    {projectType:'Business', projectIcon:'bi bi-briefcase-fill'},
+    {projectType:'Operations', projectIcon:'bi bi-gear-fill'},
+  ]
+  private leadColors: { [key: string]: string } = {};
   step = 1;
   project: any = {};
-  teamLeads = ['Alice', 'Bob', 'Charlie'];
+  teamLeads = ['Jane Doe','John Smith','Emily Clark','Michael Lee','Sarah Nguyen'];
   invitedEmails: string[] = [''];
   roles: string[] = [];
   constructor(private router: Router, private ngbModal: NgbModal) {}
@@ -87,13 +127,12 @@ export class ProjectsComponent {
   }
 
   getColorForLead(name: string): string {
-    const colors: { [key: string]: string } = {
-      'Jane Doe': '#28a745',
-      'Emily Davis': '#ffc107',
-      'Kishor M': '#dc3545',
-    };
-    return colors[name] || '#6c757d'; // default gray
+  if (!this.leadColors[name]) {
+    // Generate a random hex color
+    this.leadColors[name] = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
   }
+  return this.leadColors[name];
+}
 
   createNewProject() {
     let createProjectModal = this.ngbModal.open(this.createProject, { fullscreen: true });
@@ -103,6 +142,18 @@ export class ProjectsComponent {
     // You can navigate to an edit form or open a modal
     console.log('Editing project:', project);
     // Example: this.router.navigate(['/edit-project', project.id]);
+      this.project = {
+      title: project.title,
+      projectKey: project.projectKey,
+      clientName: project.clientName,
+      teamLead: project.teamLead,
+      projectType: project.projectType,
+      status: project.status,
+      startDate: project.startDate,
+      endDate: project.endDate,
+      description: project.description,
+    };
+    let createProjectModal = this.ngbModal.open(this.createProject, { fullscreen: true });
   }
 
   deleteProject(project: any): void {
@@ -110,8 +161,14 @@ export class ProjectsComponent {
       `Are you sure you want to delete "${project.title}"?`
     );
     if (confirmed) {
-      this.projects = this.projects.filter((p) => p !== project);
-      console.log('Project deleted:', project);
+      this.projects = this.projects.filter((p:any,index:number)=> {
+        if(p.projectKey !== project.projectKey){
+          return p;
+        }
+      });
+      
+      // console.log('Project deleted:', project,index);
+      // this.projects.splice()
     }
   }
 

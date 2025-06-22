@@ -1,56 +1,64 @@
 <!-- Navbar -->
-<nav class="header navbar navbar-dark  fixed-top shadow">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-        <span class="navbar-brand fw-bold fs-4">Planvia</span>
-        <nav class="d-flex gap-3">
-            <div class="fs-5" style="cursor: pointer;" [routerLink]="'/dashboard/projects'">Projects</div>
-            <div class="fs-5" style="cursor: pointer;" [routerLink]="">Workflow</div>
-        </nav>
-        <div class="col-6 d-flex">
-            <input type="search" name="search" id="search" class="form-control">
-            <button class="btn btn-outline-light btn-sm me-2" style="margin-left: -25px;">🔍</button>
-        </div>
-        <div class="d-flex">
-            <button class="btn rounded-circle bg-white mx-3">🔔</button>
-            <!-- Profile Dropdown (Smaller Version) -->
-            <div class="col">
-                <div ngbDropdown class="d-inline-block">
+<nav class="header navbar navbar-expand-lg navbar-dark bg-gradient-primary fixed-top shadow-sm py-2">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
 
-                    <!-- Profile Image Toggle -->
-                    <img [src]="'./images/userProfile.png'" alt="User Profile"
-                        class="rounded-circle border bg-white border-1 border-dark cursor-pointer" width="30"
-                        height="30" placement="bottom" id="dropdownBasic1" ngbDropdownToggle />
+    <!-- Logo / Brand -->
+    <a class="navbar-brand fw-bold fs-4 text-gradient">🚀 Planvia</a>
 
-                    <!-- Dropdown Menu -->
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1"
-                        class="dropdown-menu-end user-dd dropdown-menu-animate-up p-2"
-                        style="width: 220px; font-size: 0.875rem;">
-                        <span class="with-arrow"><span class="bg-primary"></span></span>
-
-                        <!-- User Info -->
-                        <div class="d-flex align-items-center p-2 bg-primary text-white mb-2 rounded">
-                            <img [src]="'./images/userProfile.png'" alt="User" width="36" height="36"
-                                class="img-circle" />
-                            <div class="ms-2">
-                                <h6 class="mb-0 text-truncate text-capitalize">unidex admin</h6>
-                                <small class="mb-0 text-truncate">unidexadminstellaripl.com</small>
-                            </div>
-                        </div>
-
-                        <!-- Menu Items -->
-                        <a routerLinkActive="router-link-active" class="dropdown-item py-1 px-2">
-                            <i class="fas fa-user me-1 ms-1"></i> My Profile
-                        </a>
-                        <a href="javascript:void(0)" class="dropdown-item py-1 px-2" (click)="logOut()">
-                            <i class="fa-solid fa-power-off me-1 ms-1"></i> Logout
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+    <!-- Search Bar -->
+    <div class="d-none d-md-flex align-items-center flex-grow-1 mx-3">
+      <div class="input-group w-100">
+        <input type="search" name="search" id="search" class="form-control form-control-sm rounded-start"
+               placeholder="Search tasks, users, or projects...">
+        <button class="btn btn-sm btn-light border rounded-end">🔍</button>
+      </div>
     </div>
+
+    <!-- Right Controls -->
+    <div class="d-flex align-items-center gap-3">
+
+      <!-- Notification Button -->
+      <button class="btn position-relative bg-white shadow-sm rounded-circle p-2 border-0">
+        🔔
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          3
+        </span>
+      </button>
+
+      <!-- Profile Dropdown -->
+      <div ngbDropdown class="d-inline-block">
+        <img [src]="'./images/userProfile.png'" alt="User Profile"
+             class="rounded-circle border bg-white border-dark cursor-pointer" width="36" height="36"
+             placement="bottom" id="dropdownBasic1" ngbDropdownToggle />
+
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1"
+             class="dropdown-menu-end user-dd dropdown-menu-animate-up p-2 shadow"
+             style="width: 220px; font-size: 0.875rem;">
+          <span class="with-arrow"><span class="bg-primary"></span></span>
+
+          <!-- User Info -->
+          <div class="d-flex align-items-center p-2 bg-primary text-white mb-2 rounded">
+            <img [src]="'./images/userProfile.png'" alt="User" width="36" height="36"
+                 class="img-circle" />
+            <div class="ms-2">
+              <h6 class="mb-0 text-truncate text-capitalize">Unidex Admin</h6>
+              <small class="text-truncate">unidexadmin&#64;stellaripl.com</small>
+            </div>
+          </div>
+
+          <!-- Menu Items -->
+          <a routerLinkActive="router-link-active" class="dropdown-item py-2 px-2">
+            <i class="fas fa-user me-2 text-primary"></i> My Profile
+          </a>
+          <a href="javascript:void(0)" class="dropdown-item py-2 px-2" (click)="logOut()">
+            <i class="fa-solid fa-power-off me-2 text-danger"></i> Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
+
 
 <div class="container-fluid" style="margin-top: 4.5rem;">
     <div class="row">

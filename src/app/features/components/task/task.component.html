@@ -1,173 +1,242 @@
-<!-- Project Header -->
-<div class="project-header bg-white p-4 rounded shadow-sm border mb-3">
-  <div class="d-flex align-items-center justify-content-between">
-    <div class="d-flex align-items-center gap-3">
-      <i class="fa-solid fa-diagram-project fs-2 text-primary"></i>
+<!-- Project Header with Embedded Tabs -->
+<div class="project-header bg-white p-3 rounded-4 shadow-sm border mb-3">
+
+  <!-- Top Row: Project Info + Actions -->
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+
+    <!-- Project Icon & Title -->
+    <div class="d-flex align-items-center gap-3 flex-grow-1">
+      <div
+        class="icon-container d-flex align-items-center justify-content-center bg-primary text-white rounded-circle shadow-sm"
+        style="width: 44px; height: 44px;">
+        <i class="fa-solid fa-diagram-project fs-5"></i>
+      </div>
       <div>
         <p class="mb-0 text-muted small">Project</p>
-        <h3 class="mb-0 fw-bold">My Scrum Project</h3>
+        <h5 class="mb-0 fw-semibold text-dark d-flex align-items-center gap-2">
+          🚀 My Scrum Project
+          <span class="badge bg-success">In Progress</span>
+        </h5>
       </div>
     </div>
-    <div class="d-flex align-items-center gap-3">
-      <i class="fa-solid fa-expand fs-5 text-secondary" title="Full Screen"></i>
-      <i class="fa-solid fa-share-nodes fs-5 text-secondary" title="Share"></i>
-      <i class="fa-solid fa-users-viewfinder fs-4 text-dark" title="Team View"></i>
-      <i class="fa-solid fa-ellipsis-vertical fs-4 text-dark" title="More Options"></i>
+
+    <!-- Action Buttons -->
+    <div class="d-flex align-items-center flex-wrap gap-2">
+      <button class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 rounded-pill shadow-sm"
+        title="Fullscreen">
+        <i class="fa-solid fa-expand"></i>
+        <span class="d-none d-md-inline">Fullscreen</span>
+      </button>
+
+      <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1 rounded-pill shadow-sm"
+        title="Share">
+        <i class="fa-solid fa-share-nodes"></i>
+        <span class="d-none d-md-inline">Share</span>
+      </button>
+
+      <button class="btn btn-outline-success btn-sm d-flex align-items-center gap-1 rounded-pill shadow-sm"
+        title="Team View">
+        <i class="fa-solid fa-users-viewfinder"></i>
+        <span class="d-none d-md-inline">Team</span>
+      </button>
+
+      <button class="btn btn-light btn-sm border d-flex align-items-center gap-1 rounded-pill shadow-sm"
+        title="More Options">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </button>
     </div>
   </div>
-</div>
 
-<!-- Navigation Tabs -->
-<ul class="nav nav-pills mb-4">
+  <!-- Underline-Style Navigation Tabs -->
+<ul class="nav tab-underline gap-3 border-bottom pt-2 px-1">
   <li class="nav-item" *ngFor="let tab of tabs">
-    <a
-      class="nav-link px-4"
-      [ngClass]="{ 'active': selectedTab === tab.key }"
-      (click)="onSelectTab(tab.key)"
-    >
+    <a class="nav-link px-1 pb-2 position-relative text-dark small fw-medium"
+       [ngClass]="{ 'active': selectedTab === tab.key }"
+       (click)="onSelectTab(tab.key)">
       {{ tab.label }}
     </a>
   </li>
 </ul>
 
+</div>
+
+
+
+
+<hr>
 <!-- Tab Content -->
-<div class="tab-content bg-white p-4 rounded shadow-sm border">
-  <!-- Summary -->
-  <div *ngIf="selectedTab === 'summary'">
-    <h4 class="mb-3">📌 Project Summary</h4>
-    <div class="row text-muted">
-      <div class="col-md-3 mb-2"><strong>Total Tasks:</strong> 38</div>
-      <div class="col-md-3 mb-2"><strong>Completed:</strong> 22</div>
-      <div class="col-md-3 mb-2"><strong>Current Sprint:</strong> Sprint 5</div>
-      <div class="col-md-3 mb-2"><strong>Team:</strong> Alice, Bob, Carlos, Dana</div>
-    </div>
-  </div>
-
-  <!-- Timeline -->
-  <div *ngIf="selectedTab === 'timeline'">
-    <h4 class="mb-3">🕒 Project Timeline</h4>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">📅 June 1: Project Kickoff</li>
-      <li class="list-group-item">🚀 June 10–30: Sprint 5</li>
-      <li class="list-group-item">🧪 July 1–15: Sprint 6</li>
-      <li class="list-group-item">📦 July 20: Release Candidate</li>
-    </ul>
-  </div>
-
-  <!-- Backlog -->
-  <div *ngIf="selectedTab === 'backlog'">
-    <h4 class="mb-3">📋 Product Backlog</h4>
-    <div class="list-group">
-      <div class="list-group-item d-flex justify-content-between align-items-center">
-        Implement user authentication <span class="badge bg-success">Ready</span>
-      </div>
-      <div class="list-group-item d-flex justify-content-between align-items-center">
-        Integrate payment gateway <span class="badge bg-warning text-dark">High</span>
-      </div>
-      <div class="list-group-item d-flex justify-content-between align-items-center">
-        Setup email notifications <span class="badge bg-info text-dark">Planned</span>
-      </div>
-      <div class="list-group-item d-flex justify-content-between align-items-center">
-        Improve dashboard UI <span class="badge bg-secondary">UX</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Board -->
-  <div *ngIf="selectedTab === 'board'">
-    <h4 class="mb-3">📌 Kanban Board</h4>
-    <div class="row g-3">
-      <div class="col-md-3">
-        <div class="bg-light p-3 rounded">
-          <h6 class="text-primary">To Do</h6>
-          <ul class="list-unstyled">
-            <li>📝 Design landing page</li>
-            <li>🧾 Create signup form</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="bg-light p-3 rounded">
-          <h6 class="text-warning">In Progress</h6>
-          <ul class="list-unstyled">
-            <li>👨‍💻 Build user profile page</li>
-            <li>🧪 Write unit tests</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="bg-light p-3 rounded">
-          <h6 class="text-info">Review</h6>
-          <ul class="list-unstyled">
-            <li>🔍 Fix mobile layout bugs</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="bg-light p-3 rounded">
-          <h6 class="text-success">Done</h6>
-          <ul class="list-unstyled">
-            <li>✅ Setup project repo</li>
-            <li>✅ Create wireframes</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- List -->
-  <div *ngIf="selectedTab === 'list'">
-    <h4 class="mb-3">📄 All Tasks</h4>
-    <table class="table table-bordered table-hover table-sm">
-      <thead class="table-light">
-        <tr>
-          <th>Task</th>
-          <th>Assignee</th>
-          <th>Status</th>
-          <th>Due</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Create login form</td>
-          <td>Alice</td>
-          <td><span class="badge bg-warning text-dark">In Progress</span></td>
-          <td>June 24</td>
-        </tr>
-        <tr>
-          <td>Fix responsive nav</td>
-          <td>Bob</td>
-          <td><span class="badge bg-secondary">To Do</span></td>
-          <td>June 26</td>
-        </tr>
-        <tr>
-          <td>Write API docs</td>
-          <td>Carlos</td>
-          <td><span class="badge bg-success">Done</span></td>
-          <td>June 15</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- All Work -->
-  <div *ngIf="selectedTab === 'allWork'">
-    <h4 class="mb-3">📊 All Work Overview</h4>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">🔥 <strong>12</strong> tasks pending across 3 sprints</li>
-      <li class="list-group-item">🛠️ <strong>4</strong> bugs currently assigned</li>
-      <li class="list-group-item">📈 Avg. task completion time: <strong>3.4 days</strong></li>
-    </ul>
-  </div>
-
-  <!-- More -->
-  <div *ngIf="selectedTab === 'more'">
-    <h4 class="mb-3">⚙️ More Options</h4>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">📊 Generate project reports</li>
-      <li class="list-group-item">🔗 Integrate with GitHub</li>
-      <li class="list-group-item">👥 Manage user permissions</li>
-      <li class="list-group-item">🧩 Configure project settings</li>
-    </ul>
+<!-- <div class="tab-content bg-light p-4 rounded shadow-sm border"> -->
+<!-- Summary -->
+<div *ngIf="selectedTab === 'summary'">
+  <h4 class="mb-3">📌 Project Summary</h4>
+  <div class="row text-muted">
+    <div class="col-md-3 mb-2"><strong>Total Tasks:</strong> 38</div>
+    <div class="col-md-3 mb-2"><strong>Completed:</strong> 22</div>
+    <div class="col-md-3 mb-2"><strong>Current Sprint:</strong> Sprint 5</div>
+    <div class="col-md-3 mb-2"><strong>Team:</strong> Alice, Bob, Carlos, Dana</div>
   </div>
 </div>
+
+<!-- Timeline -->
+<div *ngIf="selectedTab === 'timeline'">
+  <h4 class="mb-3">🕒 Project Timeline</h4>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">📅 June 1: Project Kickoff</li>
+    <li class="list-group-item">🚀 June 10–30: Sprint 5</li>
+    <li class="list-group-item">🧪 July 1–15: Sprint 6</li>
+    <li class="list-group-item">📦 July 20: Release Candidate</li>
+  </ul>
+</div>
+<div class="scroll-container" *ngIf="selectedTab === 'backlog'">
+  <div ngbAccordion>
+    @for (sprint of sprintList; track $index) {
+    <div ngbAccordionItem [collapsed]="false" class="tab-content mb-5 bg-light rounded shadow-sm border">
+      <h2 class="d-flex" ngbAccordionHeader>
+        <button [contentEditable]="true" class="bg-light fs-4" ngbAccordionButton>📋 {{sprint.sprintName}}</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let task of sprint.taskList trackBy: trackTask" cdkDrag>
+                <input type="checkbox" />
+                <span [contentEditable]="true">{{ task }}</span>
+              </div>
+            </div>
+            <div class="mx-3 mt-3 fs-4" style="cursor: pointer;" (click)="createTask()">
+              <svg xmlns="http://www.w3.org/2000/svg" style="height: 16px;width: 16px" viewBox="0 0 448 512">
+                <path
+                  d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
+              </svg>
+              Create
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    }
+    <div ngbAccordionItem [collapsed]="false" class="tab-content mb-5 bg-light rounded shadow-sm border">
+      <h2 class="d-flex" ngbAccordionHeader>
+        <button [contentEditable]="true" class="bg-light fs-4" ngbAccordionButton>📋 Backlog</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let task of taskList trackBy: trackTask" cdkDrag>
+                <input type="checkbox" />
+                <span [contentEditable]="true">{{ task }}</span>
+              </div>
+            </div>
+            <div class="mx-3 mt-3 fs-4" style="cursor: pointer;" (click)="createTask()">
+              <svg xmlns="http://www.w3.org/2000/svg" style="height: 16px;width: 16px" viewBox="0 0 448 512">
+                <path
+                  d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
+              </svg>
+              Create
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Board -->
+<div *ngIf="selectedTab === 'board'">
+  <h4 class="mb-3">📌 Kanban Board</h4>
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="bg-light p-3 rounded">
+        <h6 class="text-primary">To Do</h6>
+        <ul class="list-unstyled">
+          <li>📝 Design landing page</li>
+          <li>🧾 Create signup form</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="bg-light p-3 rounded">
+        <h6 class="text-warning">In Progress</h6>
+        <ul class="list-unstyled">
+          <li>👨‍💻 Build user profile page</li>
+          <li>🧪 Write unit tests</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="bg-light p-3 rounded">
+        <h6 class="text-info">Review</h6>
+        <ul class="list-unstyled">
+          <li>🔍 Fix mobile layout bugs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="bg-light p-3 rounded">
+        <h6 class="text-success">Done</h6>
+        <ul class="list-unstyled">
+          <li>✅ Setup project repo</li>
+          <li>✅ Create wireframes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- List -->
+<div *ngIf="selectedTab === 'list'">
+  <h4 class="mb-3">📄 All Tasks</h4>
+  <table class="table table-bordered table-hover table-sm">
+    <thead class="table-light">
+      <tr>
+        <th>Task</th>
+        <th>Assignee</th>
+        <th>Status</th>
+        <th>Due</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Create login form</td>
+        <td>Alice</td>
+        <td><span class="badge bg-warning text-dark">In Progress</span></td>
+        <td>June 24</td>
+      </tr>
+      <tr>
+        <td>Fix responsive nav</td>
+        <td>Bob</td>
+        <td><span class="badge bg-secondary">To Do</span></td>
+        <td>June 26</td>
+      </tr>
+      <tr>
+        <td>Write API docs</td>
+        <td>Carlos</td>
+        <td><span class="badge bg-success">Done</span></td>
+        <td>June 15</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- All Work -->
+<div *ngIf="selectedTab === 'allWork'">
+  <h4 class="mb-3">📊 All Work Overview</h4>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">🔥 <strong>12</strong> tasks pending across 3 sprints</li>
+    <li class="list-group-item">🛠️ <strong>4</strong> bugs currently assigned</li>
+    <li class="list-group-item">📈 Avg. task completion time: <strong>3.4 days</strong></li>
+  </ul>
+</div>
+
+<!-- More -->
+<div *ngIf="selectedTab === 'more'">
+  <h4 class="mb-3">⚙️ More Options</h4>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">📊 Generate project reports</li>
+    <li class="list-group-item">🔗 Integrate with GitHub</li>
+    <li class="list-group-item">👥 Manage user permissions</li>
+    <li class="list-group-item">🧩 Configure project settings</li>
+  </ul>
+</div>
+<!-- </div> -->

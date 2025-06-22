@@ -15,7 +15,7 @@
             [class.active-team-lead]="lead === selectedTeamLead" ngbTooltip="{{ lead }}" (click)="filtered(lead)">
             {{ getInitials(lead) }}
         </span>
-        <span class="link-danger mt-3" ngbTooltip="Show All" (click)="filtered('')">
+        <span class="link-danger mt-3" style="cursor: pointer;" ngbTooltip="Show All" (click)="filtered('')">
             Clear
         </span>
     </div>
@@ -186,10 +186,7 @@
                             <select class="form-select form-select-lg" name="projectType"
                                 [(ngModel)]="project.projectType" required>
                                 <option [ngValue]="null" disabled>Select Project Type</option>
-                                <option>Software Development</option>
-                                <option>Marketing</option>
-                                <option>Business</option>
-                                <option>Operations</option>
+                                <option *ngFor="let projectCat of projectCategory" [value]="projectCat.projectType">{{projectCat.projectType}}</option>
                             </select>
                             <div *ngIf="projectForm.submitted && !project.projectType" class="text-danger mt-1">Please
                                 select a Project Type</div>
